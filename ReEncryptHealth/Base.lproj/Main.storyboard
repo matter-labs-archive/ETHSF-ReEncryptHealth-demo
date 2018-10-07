@@ -309,6 +309,7 @@
                         <outlet property="ageLabel" destination="6nL-9w-VOQ" id="q48-TJ-Df7"/>
                         <outlet property="biologicalSexLabel" destination="md2-MW-lvA" id="6Hm-BE-URG"/>
                         <outlet property="bloodTypeLabel" destination="cFS-LI-PaP" id="Y7L-pW-5fq"/>
+                        <outlet property="dataLabel" destination="hDC-PW-Qr6" id="9j7-gw-Hh8"/>
                         <outlet property="heightLabel" destination="zng-v0-Zna" id="pj8-V2-wqx"/>
                         <segue destination="H3y-Jc-2IA" kind="show" identifier="reencrypt" id="j6G-hm-uTS"/>
                     </connections>
@@ -403,6 +404,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="dataLabel" destination="lsr-Yi-lq8" id="eUe-Fe-qbZ"/>
                         <segue destination="0qO-uJ-kvR" kind="show" identifier="decryptForMyself" id="vnf-va-IKG"/>
                     </connections>
                 </tableViewController>
@@ -419,7 +421,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Encrypted Data" id="rKW-P3-A2C" userLabel="Profile Info">
+                            <tableViewSection headerTitle="Re-Encrypted Data" id="rKW-P3-A2C" userLabel="Profile Info">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="GGz-ea-GAq" detailTextLabel="D4k-5v-Ak2" style="IBUITableViewCellStyleValue1" id="L9E-C7-IRS">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
@@ -571,12 +573,41 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="" id="2sE-Qy-szN" userLabel="Re-Encrypt Data">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="dhs-Gi-7UW" style="IBUITableViewCellStyleDefault" id="oC2-3O-9jU">
+                                        <rect key="frame" x="0.0" y="387.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oC2-3O-9jU" id="vaf-db-qMq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Decrypt Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dhs-Gi-7UW">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="0qO-uJ-kvR" id="CI9-Sl-mZt"/>
                             <outlet property="delegate" destination="0qO-uJ-kvR" id="8cG-PL-Ivm"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="WeightLabel" destination="gpq-K6-arn" id="0Ht-ej-zyB"/>
+                        <outlet property="ageLabel" destination="ZD6-ba-vAa" id="0AE-8M-T5j"/>
+                        <outlet property="biologicalSexLabel" destination="OsX-ZA-oGj" id="BoM-Sw-gAh"/>
+                        <outlet property="bloodTypeLabel" destination="ClI-lY-Kv0" id="iIX-Iy-EsR"/>
+                        <outlet property="dataLabel" destination="D4k-5v-Ak2" id="gvr-hf-D2W"/>
+                        <outlet property="heightLabel" destination="oBY-sU-TVK" id="KVi-gV-zMn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k90-zC-ZOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

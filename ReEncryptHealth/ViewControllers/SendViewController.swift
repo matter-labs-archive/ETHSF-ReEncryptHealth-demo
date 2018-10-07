@@ -10,18 +10,30 @@ import UIKit
 
 class SendViewController: UITableViewController {
     
+    var data: String? = nil
+    
     private enum ProfileSection: Int {
         case data
         case sendToContact
         case sendToMyself
     }
     
+    @IBOutlet weak var dataLabel: UILabel!
     
     private func updateLabels() {
+        if let data = self.data {
+            dataLabel.text = data
+        }
     }
     
-    private func loadAndDisplayData() {
-        
+    private func reencryptData() {
+        data = "nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3"
+        updateLabels()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        reencryptData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -40,8 +52,8 @@ class SendViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let sendViewController = segue.destination as? DecryptViewController {
-            
+        if let vc = segue.destination as? DecryptViewController {
+            vc.data = self.data
         }
     }
 }

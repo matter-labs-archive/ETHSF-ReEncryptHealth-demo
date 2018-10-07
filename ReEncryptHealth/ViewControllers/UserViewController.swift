@@ -23,14 +23,17 @@ class UserViewController: UITableViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var WeightLabel: UILabel!
     @IBOutlet weak var bloodTypeLabel: UILabel!
+    @IBOutlet weak var dataLabel: UILabel!
     
+    var data: String? = nil
     
     private let userProfile = UserProfile()
     
-    private func updateHealthInfo() {
+    private func updateHealthInfo(completion: @escaping ()->()) {
         loadAndDisplayAgeSexAndBloodType()
         loadAndDisplayMostRecentWeight()
         loadAndDisplayMostRecentHeight()
+        completion()
     }
     
     private func loadAndDisplayAgeSexAndBloodType() {
@@ -70,6 +73,15 @@ class UserViewController: UITableViewController {
             heightFormatter.isForPersonHeightUse = true
             heightLabel.text = heightFormatter.string(fromMeters: height)
         }
+        
+        if let data = self.data {
+            dataLabel.text = data
+        }
+    }
+    
+    private func encryptData() {
+        data = "AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom"
+        updateLabels()
     }
     
     private func loadAndDisplayMostRecentHeight() {
@@ -138,7 +150,9 @@ class UserViewController: UITableViewController {
         
         switch section {
         case .readHealthKitData:
-            updateHealthInfo()
+            updateHealthInfo { [weak self] in
+                self?.encryptData()
+            }
         case .send:
             self.performSegue(withIdentifier: "reencrypt", sender: self)
         default: break
@@ -146,8 +160,8 @@ class UserViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let sendViewController = segue.destination as? SendViewController {
-            
+        if let vc = segue.destination as? SendViewController {
+            vc.data = data
         }
     }
 }
