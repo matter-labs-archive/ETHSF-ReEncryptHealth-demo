@@ -20,7 +20,7 @@ It works! Hooooray!!!
 ## What we learned
 Umbral algorithm and how to work with Apples' medical data, how to and not to write Big Ints on Swift.
 
-## What's next for PeepDroid
+## What's next
 - improve app - more medical data, more new Apple Watch features like ECG
 - improve Umbral lib
 - improve Big Int lib
