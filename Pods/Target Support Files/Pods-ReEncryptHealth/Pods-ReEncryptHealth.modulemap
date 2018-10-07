@@ -1,0 +1,6 @@
+framework module Pods_ReEncryptHealth {
+  umbrella header "Pods-ReEncryptHealth-umbrella.h"
+
+  export *
+  module * { export * }
+}
