@@ -8,7 +8,11 @@ Initialized [@ETHSanFrancisco-hackathon](https://ethsanfrancisco.devpost.com/) b
  * [BaldyAsh](https://github.com/BaldyAsh) (iOS application, TinyBigInt Swift library)
 
 ## What is it
-- Native Swift application showing how to use our Umral proxy re-encryption library - [EllipticSwift](https://github.com/shamatar/ellipticswift)
+- Native Swift application showing how to use our Umral proxy re-encryption library - [EllipticSwift](https://github.com/shamatar/ellipticswift):
+  - Get your medical data from Apple
+  - Encrypt it
+  - Re-encrypt it and send to someone you trust
+  - Secure and convenient!!!
 - Swift implementation of David Nuñez's threshold proxy re-encryption scheme: [Umbral](https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf).
 Implemented with [TinyBigInt](https://github.com/matterinc/TinyBigIntSwift), it is a referential and open-source cryptography library
 extending the traditional cryptological narrative of "Alice and Bob" by introducing a new actor,
