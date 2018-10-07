@@ -12,7 +12,7 @@ Initialized [@ETHSanFrancisco-hackathon](https://ethsanfrancisco.devpost.com/) b
   - Get your medical data from Apple
   - Encrypt it
   - Re-encrypt it and send to someone you trust
-  - Secure and convenient!!!
+  - Secure and convenient
 - Swift implementation of David Nuñez's threshold proxy re-encryption scheme: [Umbral](https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf).
 Implemented with [TinyBigInt](https://github.com/matterinc/TinyBigIntSwift), it is a referential and open-source cryptography library
 extending the traditional cryptological narrative of "Alice and Bob" by introducing a new actor,
