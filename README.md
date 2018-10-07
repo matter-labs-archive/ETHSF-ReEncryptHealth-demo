@@ -1,1 +1,29 @@
 # ReEncryptHealth
+
+Safely sending private medical data, using threshold proxy re-encryption with Umbral
+
+Initialized [@ETHSanFrancisco-hackathon](https://ethsanfrancisco.devpost.com/) by:
+
+ * [shamatar](https://github.com/orgs/matterinc/people/shamatar) (Main developer: Umbral Swift library, TinyBigInt Swift library)
+ * [BaldyAsh](https://github.com/BaldyAsh) (iOS application, TinyBigInt Swift library)
+
+## What is it
+- Native Swift application showing how to use written also during ETHSanFrancisco hackathon Umral proxy re-encryption library
+- Swift implementation of David Nuñez's threshold proxy re-encryption scheme: [Umbral](https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf).
+Implemented with [TinyBigInt](https://github.com/matterinc/TinyBigIntSwift), it is a referential and open-source cryptography library
+extending the traditional cryptological narrative of "Alice and Bob" by introducing a new actor,
+*Ursula*, who has the ability to take secrets encrypted for Alice and *re-encrypt* them for Bob.
+
+## Accomplishments that we're proud of
+It works! Hooooray!!!
+
+## What we learned
+Umbral algorithm and how to work with Apples' medical data, how to and not to write Big Ints on Swift.
+
+## What's next for PeepDroid
+- improve app - more medical data
+- improve Umbral lib
+- improve Big Int lib
+
+## Big shout out to
+[NuCypher team](www.nucypher.com) for their work [on open-source projects](https://github.com/nucypher) and the proxy re-encryption network!
