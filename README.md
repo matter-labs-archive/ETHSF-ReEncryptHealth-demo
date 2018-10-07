@@ -21,9 +21,9 @@ It works! Hooooray!!!
 Umbral algorithm and how to work with Apples' medical data, how to and not to write Big Ints on Swift.
 
 ## What's next for PeepDroid
-- improve app - more medical data
+- improve app - more medical data, more new Apple Watch features like ECG
 - improve Umbral lib
 - improve Big Int lib
 
 ## Big shout out to
-[NuCypher team](www.nucypher.com) for their work [on open-source projects](https://github.com/nucypher) and the proxy re-encryption network!
+[NuCypher team](www.nucypher.com) for their work on [open-source projects](https://github.com/nucypher) and the proxy re-encryption network!
