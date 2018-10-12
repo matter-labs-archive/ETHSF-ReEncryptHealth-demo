@@ -22,6 +22,15 @@
 		E20DEF2B21677FB100CA492E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20DEF2A21677FB100CA492E /* HealthKit.framework */; };
 		E2261BB42168696B005F17E6 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261BB32168696B005F17E6 /* SendViewController.swift */; };
 		E2261BB621686C67005F17E6 /* DecryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261BB521686C67005F17E6 /* DecryptViewController.swift */; };
+		E2261E01216E243D005F17E6 /* UmbralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E00216E243D005F17E6 /* UmbralService.swift */; };
+		E2261E25216F89BA005F17E6 /* Reencapsulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E1B216F89BA005F17E6 /* Reencapsulator.swift */; };
+		E2261E26216F89BA005F17E6 /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E1C216F89BA005F17E6 /* Capsule.swift */; };
+		E2261E27216F89BA005F17E6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E1D216F89BA005F17E6 /* Keys.swift */; };
+		E2261E28216F89BA005F17E6 /* CapsuleFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E1E216F89BA005F17E6 /* CapsuleFragment.swift */; };
+		E2261E29216F89BA005F17E6 /* Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E1F216F89BA005F17E6 /* Params.swift */; };
+		E2261E2A216F89BA005F17E6 /* ReKeyGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E20216F89BA005F17E6 /* ReKeyGen.swift */; };
+		E2261E2B216F89BA005F17E6 /* Fragments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E21216F89BA005F17E6 /* Fragments.swift */; };
+		E2261E2C216F89BA005F17E6 /* Encapsulate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2261E22216F89BA005F17E6 /* Encapsulate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +54,15 @@
 		E20DEF2C21677FB100CA492E /* ReEncryptHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReEncryptHealth.entitlements; sourceTree = "<group>"; };
 		E2261BB32168696B005F17E6 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		E2261BB521686C67005F17E6 /* DecryptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptViewController.swift; sourceTree = "<group>"; };
+		E2261E00216E243D005F17E6 /* UmbralService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbralService.swift; sourceTree = "<group>"; };
+		E2261E1B216F89BA005F17E6 /* Reencapsulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reencapsulator.swift; sourceTree = "<group>"; };
+		E2261E1C216F89BA005F17E6 /* Capsule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
+		E2261E1D216F89BA005F17E6 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		E2261E1E216F89BA005F17E6 /* CapsuleFragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleFragment.swift; sourceTree = "<group>"; };
+		E2261E1F216F89BA005F17E6 /* Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Params.swift; sourceTree = "<group>"; };
+		E2261E20216F89BA005F17E6 /* ReKeyGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReKeyGen.swift; sourceTree = "<group>"; };
+		E2261E21216F89BA005F17E6 /* Fragments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fragments.swift; sourceTree = "<group>"; };
+		E2261E22216F89BA005F17E6 /* Encapsulate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encapsulate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				E20DEF2C21677FB100CA492E /* ReEncryptHealth.entitlements */,
+				E2261E18216F89BA005F17E6 /* SwiftUmbral */,
+				E2261DFF216E241E005F17E6 /* Services */,
 				E20DEF2021677C9B00CA492E /* Stores */,
 				E20DEF1B2167765500CA492E /* HealthKit */,
 				E20DEF1A2167764A00CA492E /* Models */,
@@ -150,6 +170,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E2261DFF216E241E005F17E6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E2261E00216E243D005F17E6 /* UmbralService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E2261E18216F89BA005F17E6 /* SwiftUmbral */ = {
+			isa = PBXGroup;
+			children = (
+				E2261E19216F89BA005F17E6 /* Classes */,
+			);
+			path = SwiftUmbral;
+			sourceTree = "<group>";
+		};
+		E2261E19216F89BA005F17E6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E2261E1A216F89BA005F17E6 /* Umbral */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E2261E1A216F89BA005F17E6 /* Umbral */ = {
+			isa = PBXGroup;
+			children = (
+				E2261E1B216F89BA005F17E6 /* Reencapsulator.swift */,
+				E2261E1C216F89BA005F17E6 /* Capsule.swift */,
+				E2261E1D216F89BA005F17E6 /* Keys.swift */,
+				E2261E1E216F89BA005F17E6 /* CapsuleFragment.swift */,
+				E2261E1F216F89BA005F17E6 /* Params.swift */,
+				E2261E20216F89BA005F17E6 /* ReKeyGen.swift */,
+				E2261E21216F89BA005F17E6 /* Fragments.swift */,
+				E2261E22216F89BA005F17E6 /* Encapsulate.swift */,
+			);
+			path = Umbral;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,6 +220,7 @@
 				E20DEF00216775DE00CA492E /* Sources */,
 				E20DEF01216775DE00CA492E /* Frameworks */,
 				E20DEF02216775DE00CA492E /* Resources */,
+				95F53819D7A1B5FB26CA3B02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,6 +305,34 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		95F53819D7A1B5FB26CA3B02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReEncryptHealth/Pods-ReEncryptHealth-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/EllipticSwift/EllipticSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EllipticSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReEncryptHealth/Pods-ReEncryptHealth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -253,14 +341,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				E20DEF2621677ECF00CA492E /* UserViewController.swift in Sources */,
+				E2261E01216E243D005F17E6 /* UmbralService.swift in Sources */,
 				E20DEF1D21677C4B00CA492E /* BloodType.swift in Sources */,
+				E2261E2B216F89BA005F17E6 /* Fragments.swift in Sources */,
+				E2261E25216F89BA005F17E6 /* Reencapsulator.swift in Sources */,
 				E2261BB42168696B005F17E6 /* SendViewController.swift in Sources */,
 				E20DEF0A216775DF00CA492E /* StartViewController.swift in Sources */,
+				E2261E2A216F89BA005F17E6 /* ReKeyGen.swift in Sources */,
 				E2261BB621686C67005F17E6 /* DecryptViewController.swift in Sources */,
 				E20DEF2421677CD100CA492E /* SetupAssistant.swift in Sources */,
 				E20DEF2821677F0D00CA492E /* UserProfile.swift in Sources */,
+				E2261E28216F89BA005F17E6 /* CapsuleFragment.swift in Sources */,
 				E20DEF08216775DF00CA492E /* AppDelegate.swift in Sources */,
+				E2261E29216F89BA005F17E6 /* Params.swift in Sources */,
 				E20DEF2221677CAB00CA492E /* UserData.swift in Sources */,
+				E2261E2C216F89BA005F17E6 /* Encapsulate.swift in Sources */,
+				E2261E27216F89BA005F17E6 /* Keys.swift in Sources */,
+				E2261E26216F89BA005F17E6 /* Capsule.swift in Sources */,
 				E20DEF1F21677C7500CA492E /* BiologicalSex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

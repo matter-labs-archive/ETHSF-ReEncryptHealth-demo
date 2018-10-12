@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import HealthKit
 
 class SendViewController: UITableViewController {
     
-    var data: String? = nil
+    public var data: [UInt8]? = nil
+    public var decKey: Data? = nil
     
     private enum ProfileSection: Int {
         case data
@@ -22,18 +24,15 @@ class SendViewController: UITableViewController {
     
     private func updateLabels() {
         if let data = self.data {
-            dataLabel.text = data
+            if let result = String(bytes: data, encoding: String.Encoding.ascii) {
+                 dataLabel.text = result
+            }
         }
-    }
-    
-    private func reencryptData() {
-        data = "nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3"
-        updateLabels()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reencryptData()
+        updateLabels()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -54,6 +53,7 @@ class SendViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DecryptViewController {
             vc.data = self.data
+            vc.decKey = self.decKey
         }
     }
 }

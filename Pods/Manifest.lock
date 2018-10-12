@@ -1,3 +1,33 @@
-PODFILE CHECKSUM: 288a51c1d35303af53e711dcb53ecd9cf0af5648
+PODS:
+  - BigInt (3.1.0):
+    - SipHash (~> 1.2)
+  - CryptoSwift (0.12.0)
+  - EllipticSwift (2.0.7):
+    - BigInt (~> 3.1)
+  - SipHash (1.2.2)
+  - SwiftUmbral (0.5):
+    - BigInt (~> 3.1)
+    - CryptoSwift (~> 0.12)
+    - EllipticSwift (~> 2.0.3)
+
+DEPENDENCIES:
+  - SwiftUmbral
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BigInt
+    - CryptoSwift
+    - EllipticSwift
+    - SipHash
+    - SwiftUmbral
+
+SPEC CHECKSUMS:
+  BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
+  EllipticSwift: a56a034d04507ec092d067131b81d7cb9166d856
+  SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  SwiftUmbral: 34cefd69ed58db8dea3b28d523162dc9c970faba
+
+PODFILE CHECKSUM: 99ee8853c3e3f4c3229aa4c21d6cc9084da3dcf7
 
 COCOAPODS: 1.6.0.beta.1

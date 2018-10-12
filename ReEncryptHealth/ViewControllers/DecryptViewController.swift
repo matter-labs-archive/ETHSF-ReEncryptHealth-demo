@@ -16,6 +16,9 @@ class DecryptViewController: UITableViewController {
         case decrypt = 2
     }
     
+    public var data: [UInt8]? = nil
+    public var decKey: Data? = nil
+    
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var biologicalSexLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
@@ -24,51 +27,37 @@ class DecryptViewController: UITableViewController {
     
     @IBOutlet weak var dataLabel: UILabel!
     
-    var data: String? = nil
-    var age: String? = nil
-    var biologicalSex: String? = nil
-    var bloodType: String? = nil
-    var weight: String? = nil
-    var height: String? = nil
+    private let umbralService = UmbralService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataLabel.text = data
     }
     
-    private func updateLabels() {
-        if let age = self.age {
-            ageLabel.text = "\(age)"
-        }
+    private func updateLabels(with sequence: [String.SubSequence]) {
+        let age = sequence[0]
+        ageLabel.text = "\(age)"
         
-        if let biologicalSex = self.biologicalSex {
-            biologicalSexLabel.text = biologicalSex
-        }
+        let biologicalSex = sequence[1]
+        biologicalSexLabel.text = "\(biologicalSex)"
         
-        if let bloodType = self.bloodType {
-            bloodTypeLabel.text = bloodType
-        }
+        let bloodType = sequence[2]
+        bloodTypeLabel.text = "\(bloodType)"
         
-        if let weight = self.weight {
-            WeightLabel.text = weight
-        }
+        WeightLabel.text = "\(sequence[3]) \(sequence[4])"
         
-        if let height = self.height {
-            heightLabel.text = height
-        }
-        
-        if let data = self.data {
-            dataLabel.text = data
-        }
+        let height = sequence[5]
+        heightLabel.text = "\(height)"
     }
     
     private func decryptData() {
-        self.age = "24"
-        self.biologicalSex = "Male"
-        self.height = "Unknown"
-        self.weight = "76 кг"
-        self.bloodType = "A-"
-        updateLabels() 
+        guard let decKey = self.decKey else {return}
+        guard let data = self.data else {return}
+        guard let decryptedData = umbralService.decrypt(decKey: decKey, encrypted: data) else {return}
+        guard let decryptedString = String(bytes: decryptedData, encoding: .utf8) else { return }
+        self.dataLabel.text = decryptedString
+        let decryptedElements = decryptedString.split(separator: " ")
+        
+        updateLabels(with: decryptedElements)
     }
     
     

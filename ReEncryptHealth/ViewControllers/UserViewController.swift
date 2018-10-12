@@ -12,10 +12,9 @@ import HealthKit
 class UserViewController: UITableViewController {
     
     private enum ProfileSection: Int {
-        case data = 0
-        case mainInfo = 1
-        case readHealthKitData = 2
-        case send = 3
+        case mainInfo = 0
+        case readHealthKitData = 1
+        case send = 2
     }
     
     @IBOutlet weak var ageLabel: UILabel!
@@ -25,9 +24,11 @@ class UserViewController: UITableViewController {
     @IBOutlet weak var bloodTypeLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
     
-    var data: String? = nil
+    private var encryptedData: [UInt8]? = nil
+    private var decKey: Data? = nil
     
     private let userProfile = UserProfile()
+    private let umbralService = UmbralService()
     
     private func updateHealthInfo(completion: @escaping ()->()) {
         loadAndDisplayAgeSexAndBloodType()
@@ -74,14 +75,19 @@ class UserViewController: UITableViewController {
             heightLabel.text = heightFormatter.string(fromMeters: height)
         }
         
-        if let data = self.data {
-            dataLabel.text = data
-        }
+        self.view.isUserInteractionEnabled = true
     }
     
-    private func encryptData() {
-        data = "AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom"
-        updateLabels()
+    private func encryptData(completion: @escaping ()->()) {
+        let dataInString = "\(ageLabel.text ?? "Unknown") \(biologicalSexLabel.text ?? "Unknown") \(bloodTypeLabel.text ?? "Unknown") \(WeightLabel.text ?? "Unknown") \(heightLabel.text ?? "Unknown")"
+        let dataInUTF8 = dataInString.utf8
+        let arrayData = [UInt8](dataInUTF8)
+        guard let umbralParams = umbralService.getUmbralParams() else {return}
+        guard let keys = umbralService.getKeys(params: umbralParams) else {return}
+        guard let encryptedData = umbralService.encrypt(signKey: keys.signKey, message: arrayData) else {return}
+        self.encryptedData = encryptedData
+        self.decKey = keys.decKey
+        completion()
     }
     
     private func loadAndDisplayMostRecentHeight() {
@@ -150,18 +156,23 @@ class UserViewController: UITableViewController {
         
         switch section {
         case .readHealthKitData:
-            updateHealthInfo { [weak self] in
-                self?.encryptData()
+            self.view.isUserInteractionEnabled = false
+            updateHealthInfo {
+                
             }
         case .send:
-            self.performSegue(withIdentifier: "reencrypt", sender: self)
+            self.encryptData { [weak self] in
+                guard let _ = self?.encryptedData else {return}
+                self?.performSegue(withIdentifier: "reencrypt", sender: self)
+            }
         default: break
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SendViewController {
-            vc.data = data
+            vc.data = self.encryptedData
+            vc.decKey = self.decKey
         }
     }
 }
